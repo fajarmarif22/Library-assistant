@@ -1,0 +1,10 @@
+<odoo>
+  <report
+      id="action_rental_report"
+      model="library.rental.transaction"
+      string="Rental Report"
+      report_type="qweb-pdf"
+      name="your_module_name.rental_report_template"
+      file="your_module_name.rental_report_template"
+      />
+</odoo>

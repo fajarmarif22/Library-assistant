@@ -1,0 +1,59 @@
+<odoo>
+  <data>
+    <record id="view_library_rental_transaction_tree" model="ir.ui.view">
+      <field name="name">library.rental.transaction.tree</field>
+      <field name="model">library.rental.transaction</field>
+      <field name="arch" type="xml">
+          <tree>
+              <field name="rental_date"/>
+              <field name="borrower_id"/>
+              <field name="transaction_status"/>
+              <field name="total_rental_cost"/>
+          </tree>
+      </field>
+  </record>
+
+    <record id="view_library_rental_transaction_form" model="ir.ui.view">
+      <field name="name">library.rental.transaction.form</field>
+        <field name="model">library.rental.transaction</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="rental_date"/>
+                        <field name="borrower_id"/>
+                        <field name="transaction_status"/>
+                        <field name="total_rental_cost"/>
+                    </group>
+                    <notebook>
+                        <page string="List Buku yang Dipinjam">
+                            <field name="borrowed_books">
+                                <tree>
+                                    <field name="book_id"/>
+                                    <field name="location"/>
+                                    <field name="quantity_borrowed"/>
+                                    <field name="start_date"/>
+                                    <field name="end_date"/>
+                                    <field name="total_rental_cost"/>
+                                    <field name="returned"/>
+                                </tree>
+                                <form>
+                                    <group>
+                                        <field name="book_id"/>
+                                        <field name="location"/>
+                                        <field name="quantity_borrowed"/>
+                                        <field name="start_date"/>
+                                        <field name="end_date"/>
+                                        <field name="total_rental_cost"/>
+                                        <field name="returned"/>
+                                    </group>
+                                </form>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+  </data>
+</odoo>

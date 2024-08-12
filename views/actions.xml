@@ -1,0 +1,33 @@
+<odoo>
+
+  <record id="action_library_book" model="ir.actions.act_window">
+    <field name="name">Buku</field>
+    <field name="res_model">library.book</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+
+  <record id="action_library_member" model="ir.actions.act_window">
+    <field name="name">Member</field>
+    <field name="res_model">library.member</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+
+  <record id="action_library_rental_transaction" model="ir.actions.act_window">
+    <field name="name">Transaksi Rental</field>
+    <field name="res_model">library.rental.transaction</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+
+  <menuitem id="library_menu_root" name="Perpustakaan" sequence="10"/>
+  <menuitem id="library_menu_master" name="Master" parent="library_menu_root" sequence="1"/>
+  <menuitem id="library_menu_books" name="Master Buku" parent="library_menu_master" sequence="1"/>
+  <menuitem id="library_menu_members" name="Master Member" parent="library_menu_master" sequence="2"/>
+  <menuitem id="library_menu_rentals" name="Transaksi Rental" parent="library_menu_root" sequence="2"/>
+  <menuitem id="library_menu_authors" name="Master Penulis" parent="library_menu_master" sequence="3"/>
+  <menuitem id="menu_library_books_action" name="Buku" parent="library_menu_books" action="action_library_book" sequence="1"/>
+  <menuitem id="menu_library_members_action" name="Member" parent="library_menu_members" action="action_library_member" sequence="1"/>
+  <menuitem id="menu_library_rental_transaction" 
+  name="Rental Transactions"
+  parent="library_menu_root"
+  action="action_library_rental_transaction"/>
+</odoo>

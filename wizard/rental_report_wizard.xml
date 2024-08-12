@@ -1,0 +1,34 @@
+<odoo>
+  <record id="view_rental_report_wizard" model="ir.ui.view">
+      <field name="name">rental.report.wizard.form</field>
+      <field name="model">rental.report.wizard</field>
+      <field name="arch" type="xml">
+          <form string="Rental Report Wizard">
+              <group>
+                  <field name="start_date"/>
+                  <field name="end_date"/>
+                  <field name="borrower_ids" widget="many2many_tags"/>
+              </group>
+              <footer>
+                  <button string="Generate Report" type="object" name="action_generate_report" class="btn-primary"/>
+                  <button string="Cancel" class="btn-secondary" special="cancel"/>
+              </footer>
+          </form>
+      </field>
+  </record>
+
+  <record id="action_rental_report_wizard" model="ir.actions.act_window">
+      <field name="name">Rental Report Wizard</field>
+      <field name="res_model">rental.report.wizard</field>
+      <field name="view_mode">form</field>
+      <field name="view_id" ref="view_rental_report_wizard"/>
+      <field name="target">new</field>
+  </record>
+
+  <menuitem id="menu_rental_report" name="Rental Reports" sequence="10" parent="base.menu_custom" />
+
+  <menuitem id="menu_rental_report_wizard" 
+            name="Rental Report Wizard" 
+            parent="menu_rental_report" 
+            action="action_rental_report_wizard" />
+</odoo>

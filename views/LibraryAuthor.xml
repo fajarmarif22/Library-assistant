@@ -1,0 +1,28 @@
+<odoo>
+  <record id="view_library_author_form" model="ir.ui.view">
+    <field name="name">library.author.form</field>
+    <field name="model">library.author</field>
+    <field name="arch" type="xml">
+        <form>
+            <sheet>
+                <group>
+                    <field name="name"/>
+                    <field name="identity_number"/>
+                    <field name="id_card_type"/>
+                    <field name="state"/>
+                </group>
+                <footer>
+                    <button name="action_view_books" type="object" string="Lihat Buku" class="btn-primary"/>
+                </footer>
+            </sheet>
+        </form>
+    </field>
+  </record>
+
+  <record id="action_view_books_by_author" model="ir.actions.act_window">
+    <field name="name">Buku oleh Penulis</field>
+    <field name="res_model">library.book</field>
+    <field name="view_mode">tree,form</field>
+    <field name="domain">[('author_ids', 'in', active_id)]</field>
+  </record>
+</odoo>
